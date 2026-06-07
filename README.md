@@ -4,6 +4,8 @@ Aegis Review is an internal legal document quality control prototype for compari
 
 The current proof of concept focuses only on document comparison. It does not yet connect to emails, Zoom, Teams, Outlook, client calls, or any external case management system.
 
+Author: William S. Ruiz
+
 ## Current Scope
 
 The current version compares:
