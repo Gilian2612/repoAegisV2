@@ -132,10 +132,19 @@ Compare ONLY fiduciary roles from the Intake Form against the Estate Plan excerp
 
 The Intake Form is the source of truth.
 
-Important:
-Names must match exactly.
-Do not ignore extra words in a person's name.
-If the Estate Plan adds, removes, or changes any part of a fiduciary name, flag it.
+Important rules for exact fiduciary name matching:
+- Names must match exactly.
+- Compare the full fiduciary name from the Intake Form against the full fiduciary name in the Estate Plan.
+- Do not treat a partial name match as a match.
+- Do not ignore extra words in a person's name.
+- Do not ignore missing words in a person's name.
+- Do not treat a name as matching if the Estate Plan adds an extra first name, middle name, last name, prefix, suffix, or any other word.
+- Do not treat a name as matching if the Estate Plan removes any part of the name.
+- If the Intake Form says "Rafael Eduardo Suarez Torres" and the Estate Plan says "Maria Rafael Eduardo Suarez Torres", this is NOT a match.
+- If a fiduciary name mismatch appears in the Durable Power of Attorney appointment paragraph, mark it as CRITICAL.
+- The Durable Power of Attorney appointment paragraph must be checked word by word.
+- Do not say "matches", "consistent", or "aligned" unless the full names are identical.
+
 
 Compare these roles:
 - Successor Trustee
@@ -156,18 +165,27 @@ Required output format:
 
 ## Fiduciary Review
 
-| Role | Intake Form | Estate Plan | Status |
+| Role | Intake Form Exact Name | Estate Plan Exact Name | Status |
 |---|---|---|---|
 
 ## Critical Fiduciary Corrections Before Signing
 
-| Issue | Where | Intake Form | Estate Plan | Problem | Recommended Correction |
-|---|---|---|---|---|---|
+| Issue | Document | Section / Paragraph | Intake Form Exact Name | Estate Plan Exact Name | Problem | Recommended Correction |
+|---|---|---|---|---|---|---|
+
+Status rules:
+- Use "MATCH" only if the full names are exactly identical.
+- Use "CRITICAL MISMATCH" if a Durable Power of Attorney fiduciary name differs by even one word.
+- Use "MISMATCH" if any other fiduciary name differs by even one word.
+- Use "NOT FOUND" if the role appears in the intake but cannot be located in the Estate Plan excerpt.
 
 Rules:
 - Do not perform legal compliance review.
 - Do not add outside law.
-- Do not say "matches" unless the names match exactly.
+- Do not infer that two names are the same person.
+- Do not normalize, shorten, or clean names before comparing them.
+- Do not say "matches" unless the exact full names match word for word.
+- If the Estate Plan adds "Maria" before "Rafael Eduardo Suarez Torres", flag it as a CRITICAL MISMATCH.
 - Output only the Fiduciary Review.
 
 INTAKE FORM:
