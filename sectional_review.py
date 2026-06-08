@@ -351,8 +351,13 @@ def main():
     print("Running Real Estate / Deed Review...")
     sections.append(call_ollama(build_real_estate_prompt(intake_text, estate_text)))
 
-    print("Running Typographical and Drafting Cleanup Review...")
-    sections.append(call_ollama(build_typos_prompt(estate_text), timeout=1200))
+    print("Skipping Typographical and Drafting Cleanup Review for now...")
+    sections.append(
+        "## Typographical and Drafting Cleanup\n\n"
+        "Skipped for this proof of concept to avoid long runtime. "
+        "Current priority is document comparison: client details, fiduciaries, distributions, and real estate/deed review.\n\n"
+        "Known issue: the prior full-document typographical review timed out because it sent the entire estate plan text to the local model."
+    )
 
     final_report = "# Aegis Review Sectional Report\n\n"
     final_report += "This report compares the Intake Form against the Estate Plan Draft by section.\n\n"
