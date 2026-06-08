@@ -1,6 +1,5 @@
 import os
 import requests
-#wsrm 
 
 MODEL = "qwen3:14b"
 
@@ -68,21 +67,9 @@ def build_client_details_prompt(intake_text, estate_text):
         )
     ])
 
-# Prompt purpose:
-# This prompt instructs Aegis Review to compare only the client's basic personal details
-# from the intake form against the estate plan excerpts.
-
-# Child placeholder handling:
-# The intake template may contain blank placeholder rows labeled "Child 1", "Child 2",
-# and "Child 3". These labels are not actual children unless a real name is entered.
-# This rule prevents Aegis from creating a false mismatch when the estate plan says
-# the client has no children.
-
-# Review limitations:
-# Aegis should not provide legal compliance analysis in this section.
-# This section is only for factual comparison of client details.
-
-
+    # Fix:
+    # The intake template includes blank placeholder rows labeled Child 1, Child 2, and Child 3.
+    # Those labels should not be treated as actual children unless a real name is provided.
     return f"""
 You are Aegis Review.
 
@@ -90,14 +77,11 @@ Compare ONLY client details from the Intake Form against the Estate Plan excerpt
 
 The Intake Form is the source of truth.
 
-
 Important rules for children:
 - Do not treat blank placeholder rows such as "Child 1", "Child 2", or "Child 3" as actual children.
 - Only treat a child as listed if a real child name appears next to the child field.
 - If the intake has child placeholder labels but no child names, treat the intake as having no listed children.
 - If the Estate Plan says the client has no children and the intake only contains blank child placeholders, this is a MATCH, not a mismatch.
-
-
 
 Do not perform legal compliance review.
 Do not add outside law.
@@ -170,7 +154,6 @@ Important rules for exact fiduciary name matching:
 - The Durable Power of Attorney appointment paragraph must be checked word by word.
 - Do not say "matches", "consistent", or "aligned" unless the full names are identical.
 
-
 Compare these roles:
 - Successor Trustee
 - Alternate Trustee
@@ -235,20 +218,42 @@ Compare ONLY distribution beneficiaries and percentages from the Intake Form aga
 
 The Intake Form is the source of truth.
 
+Important rules for distribution matching:
+- Compare beneficiary names and percentages exactly.
+- A beneficiary is not missing if the Estate Plan lists the beneficiary followed by a percentage.
+- Recognize distribution lines even if they are written with a colon, bullet point, dash, or plain text.
+- Treat these formats as valid Estate Plan distribution entries:
+  "Maria Desiree Suarez Guevara: 50% of the assets in the Trust Estate"
+  "Rafael Eduardo Suarez Torres: 25% of the assets in the Trust Estate"
+  "Gioconda Del Carmen Guevara: 25% of the assets in the Trust Estate"
+- Extract the percentage from the Estate Plan line even if extra words appear after the percentage.
+- Do not mark a beneficiary as missing if the full beneficiary name and percentage appear anywhere in the Estate Plan excerpt.
+- Use MATCH only if the beneficiary name and percentage match.
+- Use PERCENTAGE MISMATCH if the beneficiary exists but the percentage differs.
+- Use MISSING IN ESTATE PLAN only if the beneficiary name does not appear in the Estate Plan excerpt at all.
+
 Required output format:
 
 ## Distribution Review
 
-| Beneficiary | Intake Form Share | Estate Plan Share | Status |
-|---|---|---|---|
+| Beneficiary | Intake Form Share | Estate Plan Exact Text | Estate Plan Share | Status |
+|---|---|---|---|---|
 
 ## Distribution Issues
+
+Status rules:
+- Use MATCH if the beneficiary name appears in both documents and the percentage is the same.
+- Use PERCENTAGE MISMATCH if the beneficiary name appears but the percentage is different.
+- Use MISSING IN ESTATE PLAN only if the beneficiary name does not appear in the Estate Plan excerpt.
+- Use EXTRA IN ESTATE PLAN if the Estate Plan contains a beneficiary not listed in the Intake Form.
 
 Rules:
 - Do not perform legal compliance review.
 - Do not add outside law.
-- Check that percentages match exactly.
 - Check that beneficiary names match exactly.
+- Check that percentages match exactly.
+- Quote the Estate Plan distribution line where possible.
+- Do not say a beneficiary is missing if the name appears anywhere in the Estate Plan excerpt.
 - Output only the Distribution Review.
 
 INTAKE FORM:
