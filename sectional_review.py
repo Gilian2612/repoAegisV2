@@ -1,5 +1,6 @@
 import os
 import requests
+#wsrm 
 
 MODEL = "qwen3:14b"
 
@@ -67,12 +68,36 @@ def build_client_details_prompt(intake_text, estate_text):
         )
     ])
 
+# Prompt purpose:
+# This prompt instructs Aegis Review to compare only the client's basic personal details
+# from the intake form against the estate plan excerpts.
+
+# Child placeholder handling:
+# The intake template may contain blank placeholder rows labeled "Child 1", "Child 2",
+# and "Child 3". These labels are not actual children unless a real name is entered.
+# This rule prevents Aegis from creating a false mismatch when the estate plan says
+# the client has no children.
+
+# Review limitations:
+# Aegis should not provide legal compliance analysis in this section.
+# This section is only for factual comparison of client details.
+
+
     return f"""
 You are Aegis Review.
 
 Compare ONLY client details from the Intake Form against the Estate Plan excerpts.
 
 The Intake Form is the source of truth.
+
+
+Important rules for children:
+- Do not treat blank placeholder rows such as "Child 1", "Child 2", or "Child 3" as actual children.
+- Only treat a child as listed if a real child name appears next to the child field.
+- If the intake has child placeholder labels but no child names, treat the intake as having no listed children.
+- If the Estate Plan says the client has no children and the intake only contains blank child placeholders, this is a MATCH, not a mismatch.
+
+
 
 Do not perform legal compliance review.
 Do not add outside law.
