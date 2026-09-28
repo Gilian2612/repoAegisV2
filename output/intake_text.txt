@@ -1,0 +1,99 @@
+Estimated Fees:
+Do you currently have any of the following?
+( ) Will
+( ) Trust
+( ) Power of Attorney
+( ) Healthcare Directive
+(x) None
+FAMILY
+ASSETS
+Real Property
+OTHER
+What types of assets do you own? (Select all that apply)
+(x) Real estate
+(x) Investment accounts
+(x) Retirement accounts
+(x) Life insurance
+(   ) Business interests
+(   ) Other:
+TRUST
+LAST WILL AND TESTAMENT
+POWER OF ATTORNEY
+HEALTH CARE SURROGATE
+DISTRIBUTION
+Do you want to leave unequal shares to any beneficiaries?
+(x) Yes  (complex inheritance)
+( ) No   (standard)
+Date of First Meeting
+Preferred language? | English
+Spanish
+Coverage (if any): | ARAG Legal Insurance
+MetLife Legal Plans
+N/A
+Member/Eligibility ID | MTXLQQCKB
+Service ID/Confirmation Number
+Legal Matter | Estate Planning for (Name of Settlor)
+If several Estate plans, name the settlors:
+If not a complete estate plan, describe:
+Specific Services | For Estate Planning
+Preparation and drafting of:
+ Revocable Living Trust
+ Certificate of Trust
+ (#) Deed(s) for real property in Florida 
+ Last Will and Testament
+ Durable Power of Attorney
+  Advance Healthcare Directive
+Add ons: | No
+Yes (If yes, describe):
+Total Fee for add ons
+50% payment
+Name of Client: | Maria Dayana Suarez
+Phone: | (407)680-4896
+Email: | msuarezcor@gmail.com
+Address: | 302 Cello Cir Winter Springs, FL 32708
+County: | Seminole
+DOB: | 11/14/1986
+SSN: | 769-48-0011
+US Citizen? | Yes
+Company and Occupation | Charles Schwab and Co-Senior Operations Specialist
+Income | 92,000
+Marital Status: | Single
+Name of Spouse (if any):
+Phone:
+Email:
+Address:
+County:
+SSN:
+Company and Occupation:
+Income:
+Does Client want to keep information private from spouse?
+Non Spouse Agent (if any):
+Phone:
+Email:
+Address:
+Relationship | Name | Minor/ adult/ 26 or older | Joint/Wife/
+Husband | If minor, name of guardian
+Child 1
+Child 2
+Child 3
+Does Client want any person disinherited? If yes, add name
+Type | Address | Legal Description for Property | Folio
+Homestead | 302 Cello Cir Winter Springs, FL 32708 | Lot 120, UNIT FIVE OF MOUNT GREENWOOD, according to the Plat thereof, recorded in Plat Book 40, Page(s) 6 through 9, of the Public Records of Seminole County, Florida. | 03-21-30-5KK-0000-1200
+Other Real Property
+Role | Name
+Successor Trustee | Maria Desiree Suarez Guevara
+Alternative Trustee | Rafael Eduardo Suarez Torres
+Would successor trustee and alternative trustee be the same for the Power of Attorney, Health Care Surrogate, and Last Will and Testament? | No
+Role | Name
+Personal Representative | Maria Desiree Suarez Guevara
+Alternative Personal Rep | Rafael Eduardo Suarez Torres
+Role | Name
+Attorney in Fact | Rafael Eduardo Suarez Torres
+Alternative Attorney in Fact | Maria Desiree Suarez Guevara
+Role | Name
+Surrogate | Gioconda Del Carmen Guevara
+Alternative Surrogate | Maria Desiree Suarez Guevara
+Type | Description | Name of beneficiary | Asset
+Option C | Specific assets to each beneficiary | Maria Desiree Suarez Guevara | 50%
+Rafael Eduardo Suarez Torres | 25%
+Gioconda Del Carmen Guevara | 25%

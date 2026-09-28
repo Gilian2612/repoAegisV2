@@ -2,10 +2,26 @@ venv/
 __pycache__/
 *.pyc
 
+# Runtime folders: ignore everything except the bundled sample documents
 input/*
 output/*
 !input/.gitkeep
 !output/.gitkeep
 
+# Sample documents (synthetic, used for the demo run)
+!input/intake.docx
+!input/estate_plan.docx
+!output/intake_text.txt
+!output/estate_plan_text.txt
+!output/aegis_sectional_report.md
+
+# Word temp/lock files
+~$*
+
+# Secrets: never commit a real key, only the blank template
 .env
+!.env.example
 .DS_Store
+
+# Local working notes between Claude sessions
+SESSION_LOG.md

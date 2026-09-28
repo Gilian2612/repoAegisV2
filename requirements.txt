@@ -1,0 +1,12 @@
+# Versions pinned to the production environment.
+# Works with any Python 3.10+ (tested on 3.14.7). The venv itself is disposable:
+#   python3 -m venv venv && venv/bin/pip install -r requirements.txt
+anthropic==0.109.1
+python-dotenv==1.2.2
+python-docx==1.2.0
+
+# Only used by ollama_review.py (local model prototype)
+requests==2.34.2
+
+# Not installed in production. Only needed to run bedrock_test.py:
+# boto3
